@@ -62,7 +62,7 @@ def app():
         st.pyplot()
 
     # create a slider for the number of iterations
-    iterations_slider = st.slider(min=1, max=len(n_features_fwd), value=len(n_features_fwd), step=1, format='%d', label='Iterations:')
+    iterations_slider = st.slider(max=len(n_features_fwd), value=len(n_features_fwd), step=1, format='%d', label='Iterations:')
 
     # use the interact function to link the slider to the plot
     plot_scores(iterations_slider)
