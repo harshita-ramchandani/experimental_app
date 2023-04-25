@@ -4,6 +4,7 @@ from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
+%matplotlib inline
 
 def app():
     # generate the dataset
@@ -62,11 +63,11 @@ def app():
         st.pyplot()
 
     # create a slider for the number of iterations
-    iterations_slider = st.slider(max=len(n_features_fwd), value=len(n_features_fwd), step=1, format='%d', label='Iterations:')
+    iterations_slider = st.slider(label='Iterations:', min_value=1, max_value=len(n_features_fwd), value=len(n_features_fwd), step=1, format='%d')
 
     # use the interact function to link the slider to the plot
     plot_scores(iterations_slider)
 
+
 if __name__ == '__main__':
-    st.set_option('deprecation.showPyplotGlobalUse', False)
     app()
