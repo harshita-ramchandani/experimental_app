@@ -4,7 +4,6 @@ from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 def app():
     # generate the dataset
@@ -69,4 +68,5 @@ def app():
     plot_scores(iterations_slider)
 
 if __name__ == '__main__':
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     app()
