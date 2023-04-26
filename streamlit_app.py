@@ -25,26 +25,31 @@ scores_fwd = []
 n_features_bwd = []
 scores_bwd = []
 
-# create a new instance of the logistic regression model
-lr = LogisticRegression()
-
-# fit the sequential forward feature selector
+# loop through a range of iterations to select a variable number of features
 for i in range(1, 20):
-    sfs = SequentialFeatureSelector(lr, direction='forward', n_features_to_select=i) 
+    # create a new instance of the logistic regression model
+    lr = LogisticRegression()
+    sfs = SequentialFeatureSelector(LogisticRegression(), direction='forward', n_features_to_select=i) 
+    # fit the sequential forward feature selector
     sfs.fit(X, y)
+    # get the selected features and their corresponding scores
     selected_features_fwd = sfs.transform(X)
     lr.fit(selected_features_fwd, y)
     score_fwd = accuracy_score(y, lr.predict(selected_features_fwd))
+    # append the number of selected features and the corresponding score to the lists
     n_features_fwd.append(i)
     scores_fwd.append(score_fwd)
 
-# fit the sequential backward feature selector
-for i in range(1, 20):
-    sbs = SequentialFeatureSelector(lr, direction='backward', n_features_to_select=i)
+    # create a new instance of the logistic regression model
+    lr = LogisticRegression()
+    sbs = SequentialFeatureSelector(LogisticRegression(), direction='backward', n_features_to_select=i)
+    # fit the sequential backward feature selector
     sbs.fit(X, y)
+    # get the selected features and their corresponding scores
     selected_features_bwd = sbs.transform(X)
     lr.fit(selected_features_bwd, y)
     score_bwd = accuracy_score(y, lr.predict(selected_features_bwd))
+    # append the number of selected features and the corresponding score to the lists
     n_features_bwd.append(i)
     scores_bwd.append(score_bwd)
 
