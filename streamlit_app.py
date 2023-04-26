@@ -75,4 +75,5 @@ def app():
     st.write("hello world")
 
 # call the app function
-app()
+if __name__ == "__main__":
+    app()
