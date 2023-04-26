@@ -36,7 +36,7 @@ n_features_bwd = []
 scores_bwd = []
 
 with st.spinner(text='Please Wait..'):
-    for i in range(1, iterations_slider + 1):
+    for i in range(1,16):
         sfs.n_features_to_select = i
         sfs_pipeline = make_pipeline(sfs, lr)
         sfs_pipeline.fit(X, y)
