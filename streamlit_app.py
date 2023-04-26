@@ -4,6 +4,8 @@ from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
+from sklearn.base import clone
+
 
 # set page title
 st.set_page_config(page_title="Sequential Feature Selection")
