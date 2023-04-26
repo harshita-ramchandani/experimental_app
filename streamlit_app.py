@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Sequential Feature Selection")
 
 # generate the dataset outside the app function
-X, y = make_classification(n_samples=100, n_features=15, n_informative=15,
+X, y = make_classification(n_samples=100, n_features=20, n_informative=15,
                            n_redundant=2, n_repeated=0, n_classes=2,
                            class_sep=2.0, random_state=42)
 
