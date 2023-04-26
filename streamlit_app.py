@@ -4,7 +4,8 @@ from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.switch_backend('Agg')
+
 
 def app():
     # generate the dataset
